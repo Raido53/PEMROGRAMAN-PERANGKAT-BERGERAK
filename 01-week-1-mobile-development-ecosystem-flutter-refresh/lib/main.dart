@@ -13,7 +13,7 @@ class PoliwangiProfileApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Profil Mahasiswa TRPL',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0284C7)), // Biru Poliwangi
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0D9488),), // Teal
         useMaterial3: true,
       ),
       home: const ProfileScreen(),
@@ -30,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
       backgroundColor: const Color(0xFFF8FAFC),
       appBar: AppBar(
         title: const Text('Profil Mahasiswa', style: TextStyle(fontWeight: FontWeight.bold)),
-        backgroundColor: const Color(0xFF0284C7),
+        backgroundColor: const Color(0xFF0D9488),
         foregroundColor: Colors.white,
         centerTitle: true,
       ),
@@ -127,6 +127,20 @@ class ProfileScreen extends StatelessWidget {
                         label: 'Semester / TA',
                         value: 'Semester 3 (2026/2027)',
                       ),
+                      const Divider(height: 24, color: Color(0xFFF1F5F9)),
+                      const _InfoRow(
+                        icon: Icons.code_rounded,
+                        label: 'Repositori GitHub',
+                        value: 'github.com/Raido53',
+                      ),
+
+                      const Divider(height: 24, color: Color(0xFFF1F5F9)),
+
+                      const _InfoRow(
+                      icon: Icons.star_rounded,
+                      label: 'Fokus Keahlian',
+                      value: 'Mobile UI/UX & Flutter Development',
+                    ),
                     ],
                   ),
                 ),
@@ -151,7 +165,7 @@ class ProfileScreen extends StatelessWidget {
                   icon: const Icon(Icons.verified_user_rounded),
                   label: const Text('Verifikasi Status Mahasiswa'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF0284C7),
+                    backgroundColor: Color(0xFF0D9488),
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
