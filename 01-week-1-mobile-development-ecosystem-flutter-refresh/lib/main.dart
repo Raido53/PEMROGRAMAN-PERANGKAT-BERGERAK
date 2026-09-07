@@ -13,9 +13,7 @@ class PoliwangiProfileApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Profil Mahasiswa TRPL',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF0284C7),
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0284C7)), // Biru Poliwangi
         useMaterial3: true,
       ),
       home: const ProfileScreen(),
@@ -29,24 +27,22 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FCFA),
+      backgroundColor: const Color(0xFFF8FAFC),
       appBar: AppBar(
-        title: const Text(
-          'Profil Mahasiswa',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+        title: const Text('Profil Mahasiswa', style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: const Color(0xFF0284C7),
         foregroundColor: Colors.white,
-        elevation: 0,
         centerTitle: true,
       ),
+      // Placeholder sementara sebelum diisi konten profil
       body: Center(
+        // ScrollView dipakai agar UI tetap aman saat orientasi landscape atau layar kecil
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // ── Avatar ─────────────────────────────────────────────
+              // Avatar profil
               Container(
                 width: 96,
                 height: 96,
@@ -66,9 +62,9 @@ class ProfileScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // ── GANTI: Nama Anda ──────────────────────────────────
+              // Nama mahasiswa
               const Text(
-                'Raido Octaviandy',
+                'Raido Octaviandy', // Ganti dengan nama asli Anda
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
@@ -77,18 +73,15 @@ class ProfileScreen extends StatelessWidget {
               ),
               const SizedBox(height: 6),
 
-              // ── GANTI: NIM Anda ───────────────────────────────────
+              // Badge NIM
               Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
-                  vertical: 4,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
                 decoration: BoxDecoration(
                   color: const Color(0xFFDBEAFE),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Text(
-                  'NIM: 362558302036',
+                  'NIM: 362558302036', // Ganti dengan NIM asli Anda
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
@@ -96,9 +89,10 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
               const SizedBox(height: 24),
 
-              // ── Kartu Info Akademik ──────────────────────────────
+              // Kartu informasi akademik
               Card(
                 elevation: 2,
                 shape: RoundedRectangleBorder(
@@ -137,6 +131,35 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
+              const SizedBox(height: 24),
+
+              // Tombol verifikasi dengan feedback SnackBar
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Status: Mahasiswa Aktif TRPL — Angkatan 2024'),
+                        backgroundColor: Color(0xFF0284C7),
+                        behavior: SnackBarBehavior.floating,
+                        duration: Duration(seconds: 3),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.verified_user_rounded),
+                  label: const Text('Verifikasi Status Mahasiswa'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF0284C7),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -145,6 +168,7 @@ class ProfileScreen extends StatelessWidget {
   }
 }
 
+// Widget reusable untuk tiap baris informasi profil
 class _InfoRow extends StatelessWidget {
   final IconData icon;
   final String label;
@@ -169,6 +193,8 @@ class _InfoRow extends StatelessWidget {
           child: Icon(icon, size: 20, color: const Color(0xFF0284C7)),
         ),
         const SizedBox(width: 14),
+
+        // Expanded agar teks panjang otomatis wrap ke bawah dan tidak overflow
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
