@@ -16,7 +16,7 @@
 | ![Portrait](./screenshots/running_portrait.png) | ![Dark](./screenshots/running_dark.png) | ![Wide](./screenshots/running_wide.png) |
 
 ## 3. Kendala Layout yang Dihadapi & Solusinya
-- **Kendala**: [Contoh: Terjadi overflow pada nama matakuliah yang panjang]
+- **Kendala**:
 - **Solusi**: [Contoh: Membungkus Text dengan Expanded dan menambahkan maxLines: 2 serta TextOverflow.ellipsis]
 
 ## 4. Jawaban Pertanyaan Refleksi
